@@ -4,6 +4,9 @@
 <img src="https://github.com/WithPrecedent/ursula/blob/main/docs/img/ursula_le_guin.png?raw=true" alt="ursula logo" style="width:250px;"/>
 </p>
 
+“*A writer is a person who cares what words mean, what they say, how they say it. Writers know words are their way towards truth and freedom, and so they use them with care, with thought, with fear, with delight. By using words well they strengthen their souls. Story-tellers and poets spend their lives learning that skill and art of using words well. And their words make the souls of their readers stronger, brighter, deeper.*”
+― Ursula K. Le Guin
+
 | | |
 | --- | --- |
 | Version | [![PyPI Latest Release](https://img.shields.io/pypi/v/ursula.svg?style=for-the-badge&color=steelblue&label=PyPI&logo=PyPI&logoColor=yellow)](https://pypi.org/project/ursula/) [![GitHub Latest Release](https://img.shields.io/github/v/tag/WithPrecedent/ursula?style=for-the-badge&color=navy&label=GitHub&logo=github)](https://github.com/WithPrecedent/ursula/releases)
@@ -15,7 +18,7 @@
 
 ## What is ursula?
 
-`ursula` is an easy-to-use [![Template Manager](https://img.shields.io/badge/Cookiecutter-bisque?style=flat-square&logo=cookiecutter&labelColor=gray)](https://www.cookiecutter.io/) template for academic markdown writing
+`ursula` is an easy-to-use `cookiecutter` template for academic markdown writing
 projects that may include code. To see an example repository using this
 template, check out
 [`ursula_demo`](https://github.com/withprecedent/ursula_demo). The primary goal of
@@ -37,7 +40,7 @@ Out of the box, `ursula` is designed for projects that:
 
 ## Why use ursula?
 
-`ursula` is built on top of my generic `Python` template:  [![Repository Template](https://img.shields.io/badge/snickerdoodle-bisque?style=flat-square&logo=cookiecutter&labelColor=gray)](https://www.github.com/WithPrecedent/snickerdoodle). You
+`ursula` is built on top of my generic `Python` template:  [`snickerdoodle`](https://www.github.com/WithPrecedent/snickerdoodle). You
 can read the `readme` for that template to understand its advantages versus
 other templates. What `ursula` adds is support for academic writing projects.
 This may include articles or books. Presentation slides and notes are also
@@ -61,7 +64,7 @@ management that do not require any external services or costs:
 ### Options
 
 In addition to the included tools above, `ursula` includes several
-options in the [![Template Manager](https://img.shields.io/badge/Cookiecutter-bisque?style=flat-square&logo=cookiecutter&labelColor=gray)](https://www.cookiecutter.io/) questionnaire that can be automatically applied
+options in the `cookiecutter` questionnaire that can be automatically applied
 as part of the templating process:
 
 * Badge style: [![flat
@@ -82,9 +85,9 @@ as part of the templating process:
 
 ### Setup
 
-If you are new to [![Template Manager](https://img.shields.io/badge/Cookiecutter-bisque?style=flat-square&logo=cookiecutter&labelColor=gray)](https://www.cookiecutter.io/) or simply want to guarantee that the created repository works as intended, follow the instructions in the [`ursula` tutorial](https://withprecedent.github.io/ursula/tutorial/).
+If you are new to `cookiecutter` or simply want to guarantee that the created repository works as intended, follow the instructions in the [`ursula` tutorial](https://withprecedent.github.io/ursula/tutorial/).
 
-If you are familiar with [![Template Manager](https://img.shields.io/badge/Cookiecutter-bisque?style=flat-square&logo=cookiecutter&labelColor=gray)](https://www.cookiecutter.io/) templates, you can go about the
+If you are familiar with `cookiecutter` templates, you can go about the
 normal construction process. However, if you do not select the optional
 automatic setup features in the questionnaire, you should follow the instructions
 for manually setting up your [virtual

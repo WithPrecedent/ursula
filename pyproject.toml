@@ -2,9 +2,9 @@
 
 [project]
 name = "ursula"
-description = "Easy-to-use, general-purpose, modern cookiecutter template for Python"
+description = "Cookiecutter template for academic writing in Markdown with support for Python code"
 authors = [{name = "coreyrayburnyung", email = "coreyrayburnyung@gmail.com"}]
-version = "0.1.11"
+version = "0.1.0"
 license = {text = "Apache 2.0"}
 readme = "README.md"
 requires-python = ">=3.8"
@@ -14,7 +14,7 @@ classifiers = [
     "Programming Language :: Python",
     "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",   
+    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -36,7 +36,7 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 plugins = [
-    "sync-pre-commit-lock[pdm]", 
+    "sync-pre-commit-lock[pdm]",
     "pdm-multirun"]
 
 [tool.pdm.build]
@@ -181,7 +181,6 @@ ignore-variadic-names = true
 
 [tool.ruff.isort]
 case-sensitive = true
-known-first-party = ["{{cookiecutter.repo_name}}"]
 required-imports = ["from __future__ import annotations"]
 split-on-trailing-comma = false
 

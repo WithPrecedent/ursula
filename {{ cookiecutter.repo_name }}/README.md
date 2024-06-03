@@ -16,10 +16,6 @@
 
 [TODO: Brief summary of the project]
 
-## Why use {{cookiecutter.project_name}}?
-
-[TODO: Features and reasons to use the project (and, possibly, not to use it)]
-
 ## Getting started
 
 ### Requirements
