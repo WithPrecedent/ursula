@@ -1,0 +1,33 @@
+{
+  "project_name": "",
+  "package_name": "{{cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-')}}",
+  "repo_name": "{{cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_')}}",
+  "title": "",
+  "author_name": "",
+  "author_email": "",
+  "github_user": "",
+  "description": "",
+  "version": "0.1.0",
+  "url": "{{'https://github.com/' + cookiecutter.github_user + '/' + cookiecutter.repo_name}}",
+  "license": [
+    "Apache Software License 2.0",
+    "BSD License",
+    "ISC License",
+    "GNU General Public License v3",
+    "MIT License",
+    "Other"],
+  "badge_style": [
+    "for-the-badge",
+    "flat",
+    "flat-square",
+    "plastic",
+    "social"],
+  "commit_to_github": false,
+  "code_folder": false,
+  "data_folder": false,
+  "presentations_folder": false,
+  "research_folder": false,
+  "results_folder": false,
+  "visuals_folder": false,
+  "keep_old_drafts": false
+}
