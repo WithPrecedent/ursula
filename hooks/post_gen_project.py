@@ -88,6 +88,7 @@ def create_folders(folders: MutableMapping[str, list[str]], root: str) -> None:
             created.
 
     """
+    root = pathlib.Path(root)
     for folder, subfolders in folders.items():
         if subfolders:
             for subfolder in subfolders:
