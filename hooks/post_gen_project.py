@@ -93,10 +93,10 @@ def create_folders(folders: MutableMapping[str, list[str]], root: str) -> None:
         if subfolders:
             for subfolder in subfolders:
                 full_path = root.joinpath(folder).joinpath(subfolder)
-                pathlib.mkdir(full_path, parents = True, exist_ok = True)
+                full_path.mkdir(parents = True, exist_ok = True)
         else:
             full_path = root.joinpath(folder)
-            pathlib.mkdir(full_path, parents = True, exist_ok = True)
+            full_path.mkdir(parents = True, exist_ok = True)
 
 def main() -> None:
     """Executes post repository generation scripts."""
