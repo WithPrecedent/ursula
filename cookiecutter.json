@@ -2,7 +2,7 @@
   "project_name": "",
   "package_name": "{{cookiecutter.project_name.lower().replace(' ', '-').replace('_', '-')}}",
   "repo_name": "{{cookiecutter.project_name.lower().replace(' ', '_').replace('-', '_')}}",
-  "title": "",
+  "publication_title": "",
   "author_name": "",
   "author_email": "",
   "github_user": "",
@@ -23,11 +23,5 @@
     "plastic",
     "social"],
   "commit_to_github": false,
-  "code_folder": false,
-  "data_folder": false,
-  "presentations_folder": false,
-  "research_folder": false,
-  "results_folder": false,
-  "visuals_folder": false,
-  "keep_old_drafts": false
+  "create_virtual_environment": false
 }
