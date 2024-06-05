@@ -4,13 +4,13 @@
 
 To use `ursula` and the repository that it creates, you just need:
 
-* [`python`](https://www.python.org/) 3.8 or later
 * [`git`](https://git-scm.com/)
+* A [GitHub](https://github.com/) account
 * [`cookiecutter`](https://www.cookiecutter.io/),
   [`cruft`](https://github.com/cruft/cruft), or
   [`cookieninja`](https://github.com/cookieninja-generator/cookieninja)
-* [`pdm`](https://pdm.fming.dev/latest/)
-* A [GitHub](https://github.com/) account
+* [`python`](https://www.python.org/) 3.8 or later (if you are including Python code)
+* [`pdm`](https://pdm.fming.dev/latest/) (if you are including Python code)
 
 !!! tip
     To take advantage of the automatic initial commit to GitHub, you should also
@@ -62,6 +62,7 @@ any limitations on your answer:
 | `project_name` | project title on README and docs | None | alphanumeric |
 | `package_name` | project title on PyPI.org | `project_name` with spaces and underscores changed to dashes | alphanumeric with no spaces or underscores |
 | `repo_name` | project title on GitHub | `project_name` with spaces and dashes changed to underscores | alphanumeric with no spaces or dashes |
+| `publication_title` | none, currently | None | alphanumeric |
 | `author_name` | in `pyproject.toml` and docs | None | alphanumeric |
 | `author_email` | in `pyproject.toml` | None | alphanumeric |
 | `github_user`  | to infer URL and in `pyproject.toml` | None | alphanumeric |

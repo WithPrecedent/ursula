@@ -6,7 +6,7 @@ import subprocess
 from collections.abc import MutableMapping
 
 _FOLDERS: MutableMapping[str, list[str]] = {
-    'data': ['final', 'modified', 'final'],
+    'data': ['final', 'modified', 'raw'],
     'presentations': [],
     'research': [],
     'results': [],

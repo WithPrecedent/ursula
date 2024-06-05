@@ -18,8 +18,8 @@ cookiecutter gh:WithPrecedent/ursula --config-file cc_config.yaml
 
 ## Core Components
 
-These are the tools that `ursula` incorporates and a brief explanation as
-to why they were chosen:
+These are the tools that `ursula` incorporates for users who want to include
+Python code in their project and a brief explanation as to why they were chosen:
 
 * [`pdm`](https://pdm.fming.dev/latest/): Although [`poetry`](https://python-poetry.org/) is more popular, its syntax
 [is not
@@ -83,11 +83,9 @@ are located in the ".github" folder and on the GitHub repository page under "Act
 | GitHub Action | Trigger | Jobs |
 | --- | --- | --- |
 | `ci` | automatically on push | builds repo, runs tests, lints, formats, builds docs, and deploys docs |
-| `build` | another Action | builds repo |
 | `document` | another Action or manually on GitHub| builds and deploys docs |
 | `lint` | another Action or manually on GitHub | lints repository with `ruff` |
 | `merge` | another Action or manually on GitHub | merges `development` branch into `main` (currently untested Action) |
-| `publish` | another Action or manually on GitHub | publishes repository on PyPI (must configure PyPI to accept as [trusted publisher](https://docs.pypi.org/trusted-publishers/adding-a-publisher/)) |
 
 !!! Tip
 
@@ -97,26 +95,13 @@ are located in the ".github" folder and on the GitHub repository page under "Act
 ## Publishing
 
 `ursula` tries to make publishing your repository as simple as possible.
-Out-of-the-box, it provides tools to publish a release on GitHub and PyPI.
+Out-of-the-box, it provides tools to publish a release on GitHub.
 
-=== "on GitHub"
-
-    To post a release on GitHub, you just need to push a commit with a message that
-    begins with the letter "v" followed by the version in [semantic
-    form](https://semver.org/) (e.g. "v0.1.2"). That will trigger a job in the
-    `ci.yml` Action which automatically publishes a release, using the CHANGELOG.md
-    for any changes made since the last release.
-
-=== "on PyPI"
-
-    The best way to publish a release on PyPI is to make the `ci.yml` Action a
-    [trusted
-    publisher](https://docs.pypi.org/trusted-publishers/adding-a-publisher/). If you
-    do that, you can just run the `publish` GitHub
-    Action (which can be activated directly from your GitHub repository's Actions
-    page). Otherwise, you should use the [`pdm publish`
-    command](https://pdm.fming.dev/latest/usage/publish/) from the command line
-    while in the repository's root folder.
+To post a release on GitHub, you just need to push a commit with a message that
+begins with the letter "v" followed by the version in [semantic
+form](https://semver.org/) (e.g. "v0.1.2"). That will trigger a job in the
+`ci.yml` Action which automatically publishes a release, using the CHANGELOG.md
+for any changes made since the last release.
 
 ## Repository Layout
 
@@ -130,6 +115,10 @@ that you will ordinarily modify are commented.
 ├── CHANGELOG.md              # Main changelog to record changes
 ├── CODE_OF_CONDUCT.md
 ├── CONTRIBUTING.md
+├── data                      # Store all data in subfolders here
+│   ├── final
+│   ├── modified
+│   └── raw
 ├── docs
 │   ├── advanced.md           # Add core documentation beyond the tutorial
 │   ├── changelog.md
@@ -148,13 +137,21 @@ that you will ordinarily modify are commented.
 │   └── tutorial.md           # Add basic tutorial
 ├── LICENSE
 ├── mkdocs.yml                # Change documentation structure
+├── presentations             # Store all slides here
 ├── pyproject.toml            # Add dependencies or project metadata
 ├── README.md                 # This will also be the docs landing page
+├── research                  # Store resources for citations here
 ├── src
 │   └── {repository name}     # Add Python modules
-│       └── __init__.py       # Update import info and version 
-└── tests                     # Add other test files
-    └── test_main.py          # Follow the 'test_NAME' convention
+│       └── __init__.py       # Update import info and version
+├── tests                     # Add other test files for Python code
+│   └── test_main.py          # Follow the 'test_name' convention
+├── visuals                   # All visuals for presentations and writing
+└── writing
+    ├── active                # Working draft files should be stored here
+    ├── drafts                # Old drafts
+    ├── published             # Published version
+    └── submission            # Drafts that were submitted for publication
 ```
 
 ## Versioning
