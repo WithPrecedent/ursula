@@ -9,7 +9,7 @@ To use `ursula` and the repository that it creates, you just need:
 * [`cookiecutter`](https://www.cookiecutter.io/),
   [`cruft`](https://github.com/cruft/cruft), or
   [`cookieninja`](https://github.com/cookieninja-generator/cookieninja)
-* [`python`](https://www.python.org/) 3.8 or later (if you are including Python code)
+* [`python`](https://www.python.org/) 3.8 or later
 * [`pdm`](https://pdm.fming.dev/latest/) (if you are including Python code)
 
 !!! tip

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 <!-- insertion marker -->
 
+## 0.1.2
+
+* Restored docs folder
+
 ## 0.1.1
 
 * Added folder tree creation function for writing folders
