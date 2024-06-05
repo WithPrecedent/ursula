@@ -40,7 +40,7 @@ Out of the box, `ursula` is designed for projects that:
 
 ## Why use ursula?
 
-`ursula` is built on top of my generic `Python` template:  [`snickerdoodle`](https://www.github.com/WithPrecedent/snickerdoodle). You
+`ursula` is built on top of my general-use `Python` template:  [`snickerdoodle`](https://www.github.com/WithPrecedent/snickerdoodle). You
 can read the `readme` for that template to understand its advantages versus
 other templates. What `ursula` adds is support for academic writing projects.
 This may include articles or books. Presentation slides and notes are also
