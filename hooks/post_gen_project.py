@@ -29,7 +29,7 @@ def execute_commands(
     # 'shell' to True.
     kwargs = {"cwd": folder, 'shell': False}
     for command in commands:
-        subprocess.run(command, **kwargs, check = True)  # noqa: S603
+        subprocess.run(command, **kwargs, check = False)  # noqa: S603
 
 def create_virtual_environment(folder: str | pathlib.Path) -> None:
     """Creates a virtual environment at '.venv' using `subprocess` and `pdm`.
