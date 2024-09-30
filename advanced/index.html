@@ -905,8 +905,8 @@ follows:</p>
 <div class="highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>cookiecutter<span class="w"> </span>gh:WithPrecedent/ursula<span class="w"> </span>--config-file<span class="w"> </span>cc_config.yaml
 </span></code></pre></div>
 <h2 id="core-components">Core Components<a class="headerlink" href="#core-components" title="Permanent link">&para;</a></h2>
-<p>These are the tools that <code>ursula</code> incorporates and a brief explanation as
-to why they were chosen:</p>
+<p>These are the tools that <code>ursula</code> incorporates for users who want to include
+Python code in their project and a brief explanation as to why they were chosen:</p>
 <ul>
 <li><a href="https://pdm.fming.dev/latest/"><code>pdm</code></a>: Although <a href="https://python-poetry.org/"><code>poetry</code></a> is more popular, its syntax
 <a href="https://github.com/python-poetry/roadmap/issues/3">is not
@@ -978,11 +978,6 @@ are located in the ".github" folder and on the GitHub repository page under "Act
 <td>builds repo, runs tests, lints, formats, builds docs, and deploys docs</td>
 </tr>
 <tr>
-<td><code>build</code></td>
-<td>another Action</td>
-<td>builds repo</td>
-</tr>
-<tr>
 <td><code>document</code></td>
 <td>another Action or manually on GitHub</td>
 <td>builds and deploys docs</td>
@@ -997,11 +992,6 @@ are located in the ".github" folder and on the GitHub repository page under "Act
 <td>another Action or manually on GitHub</td>
 <td>merges <code>development</code> branch into <code>main</code> (currently untested Action)</td>
 </tr>
-<tr>
-<td><code>publish</code></td>
-<td>another Action or manually on GitHub</td>
-<td>publishes repository on PyPI (must configure PyPI to accept as <a href="https://docs.pypi.org/trusted-publishers/adding-a-publisher/">trusted publisher</a>)</td>
-</tr>
 </tbody>
 </table>
 <div class="admonition tip">
@@ -1011,28 +1001,12 @@ are located in the ".github" folder and on the GitHub repository page under "Act
 </div>
 <h2 id="publishing">Publishing<a class="headerlink" href="#publishing" title="Permanent link">&para;</a></h2>
 <p><code>ursula</code> tries to make publishing your repository as simple as possible.
-Out-of-the-box, it provides tools to publish a release on GitHub and PyPI.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">on GitHub</label><label for="__tabbed_1_2">on PyPI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
+Out-of-the-box, it provides tools to publish a release on GitHub.</p>
 <p>To post a release on GitHub, you just need to push a commit with a message that
 begins with the letter "v" followed by the version in <a href="https://semver.org/">semantic
 form</a> (e.g. "v0.1.2"). That will trigger a job in the
 <code>ci.yml</code> Action which automatically publishes a release, using the CHANGELOG.md
 for any changes made since the last release.</p>
-</div>
-<div class="tabbed-block">
-<p>The best way to publish a release on PyPI is to make the <code>ci.yml</code> Action a
-<a href="https://docs.pypi.org/trusted-publishers/adding-a-publisher/">trusted
-publisher</a>. If you
-do that, you can just run the <code>publish</code> GitHub
-Action (which can be activated directly from your GitHub repository's Actions
-page). Otherwise, you should use the <a href="https://pdm.fming.dev/latest/usage/publish/"><code>pdm publish</code>
-command</a> from the command line
-while in the repository's root folder.</p>
-</div>
-</div>
-</div>
 <h2 id="repository-layout">Repository Layout<a class="headerlink" href="#repository-layout" title="Permanent link">&para;</a></h2>
 <p><a href="https://packaging.python.org/en/latest/discussions/src-layout-vs-flat-layout/">Consistent with best
 practices</a>,
@@ -1042,31 +1016,43 @@ that you will ordinarily modify are commented.</p>
 <div class="highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>├──<span class="w"> </span>CHANGELOG.md<span class="w">              </span><span class="c1"># Main changelog to record changes</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├──<span class="w"> </span>CODE_OF_CONDUCT.md
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├──<span class="w"> </span>CONTRIBUTING.md
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├──<span class="w"> </span>docs
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│<span class="w">   </span>├──<span class="w"> </span>advanced.md<span class="w">           </span><span class="c1"># Add core documentation beyond the tutorial</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│<span class="w">   </span>├──<span class="w"> </span>changelog.md
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│<span class="w">   </span>├──<span class="w"> </span>code_of_conduct.md
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│<span class="w">   </span>├──<span class="w"> </span>contributing.md
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│<span class="w">   </span>├──<span class="w"> </span>credits.md
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│<span class="w">   </span>├──<span class="w"> </span>css
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>material.css
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>mkdocstrings.css
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│<span class="w">   </span>├──<span class="w"> </span>index.md
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│<span class="w">   </span>├──<span class="w"> </span>license.md
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│<span class="w">   </span>├──<span class="w"> </span>recipes.md<span class="w">            </span><span class="c1"># Add examples and recipes</span>
-</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│<span class="w">   </span>├──<span class="w"> </span>scripts
-</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_credits.py
-</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>gen_ref_nav.py
-</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│<span class="w">   </span>└──<span class="w"> </span>tutorial.md<span class="w">           </span><span class="c1"># Add basic tutorial</span>
-</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>├──<span class="w"> </span>LICENSE
-</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>├──<span class="w"> </span>mkdocs.yml<span class="w">                </span><span class="c1"># Change documentation structure</span>
-</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>├──<span class="w"> </span>pyproject.toml<span class="w">            </span><span class="c1"># Add dependencies or project metadata</span>
-</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>├──<span class="w"> </span>README.md<span class="w">                 </span><span class="c1"># This will also be the docs landing page</span>
-</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>├──<span class="w"> </span>src
-</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>│<span class="w">   </span>└──<span class="w"> </span><span class="o">{</span>repository<span class="w"> </span>name<span class="o">}</span><span class="w">     </span><span class="c1"># Add Python modules</span>
-</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>│<span class="w">       </span>└──<span class="w"> </span>__init__.py<span class="w">       </span><span class="c1"># Update import info and version </span>
-</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>└──<span class="w"> </span>tests<span class="w">                     </span><span class="c1"># Add other test files</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">    </span>└──<span class="w"> </span>test_main.py<span class="w">          </span><span class="c1"># Follow the &#39;test_NAME&#39; convention</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├──<span class="w"> </span>data<span class="w">                      </span><span class="c1"># Store all data in subfolders here</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│<span class="w">   </span>├──<span class="w"> </span>final
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│<span class="w">   </span>├──<span class="w"> </span>modified
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│<span class="w">   </span>└──<span class="w"> </span>raw
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>├──<span class="w"> </span>docs
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│<span class="w">   </span>├──<span class="w"> </span>advanced.md<span class="w">           </span><span class="c1"># Add core documentation beyond the tutorial</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│<span class="w">   </span>├──<span class="w"> </span>changelog.md
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│<span class="w">   </span>├──<span class="w"> </span>code_of_conduct.md
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│<span class="w">   </span>├──<span class="w"> </span>contributing.md
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│<span class="w">   </span>├──<span class="w"> </span>credits.md
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│<span class="w">   </span>├──<span class="w"> </span>css
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>material.css
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>mkdocstrings.css
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│<span class="w">   </span>├──<span class="w"> </span>index.md
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│<span class="w">   </span>├──<span class="w"> </span>license.md
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│<span class="w">   </span>├──<span class="w"> </span>recipes.md<span class="w">            </span><span class="c1"># Add examples and recipes</span>
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│<span class="w">   </span>├──<span class="w"> </span>scripts
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>gen_credits.py
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│<span class="w">   </span>│<span class="w">   </span>└──<span class="w"> </span>gen_ref_nav.py
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│<span class="w">   </span>└──<span class="w"> </span>tutorial.md<span class="w">           </span><span class="c1"># Add basic tutorial</span>
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>├──<span class="w"> </span>LICENSE
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>├──<span class="w"> </span>mkdocs.yml<span class="w">                </span><span class="c1"># Change documentation structure</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>├──<span class="w"> </span>presentations<span class="w">             </span><span class="c1"># Store all slides here</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├──<span class="w"> </span>pyproject.toml<span class="w">            </span><span class="c1"># Add dependencies or project metadata</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>├──<span class="w"> </span>README.md<span class="w">                 </span><span class="c1"># This will also be the docs landing page</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>├──<span class="w"> </span>research<span class="w">                  </span><span class="c1"># Store resources for citations here</span>
+</span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a>├──<span class="w"> </span>src
+</span><span id="__span-1-31"><a id="__codelineno-1-31" name="__codelineno-1-31" href="#__codelineno-1-31"></a>│<span class="w">   </span>└──<span class="w"> </span><span class="o">{</span>repository<span class="w"> </span>name<span class="o">}</span><span class="w">     </span><span class="c1"># Add Python modules</span>
+</span><span id="__span-1-32"><a id="__codelineno-1-32" name="__codelineno-1-32" href="#__codelineno-1-32"></a>│<span class="w">       </span>└──<span class="w"> </span>__init__.py<span class="w">       </span><span class="c1"># Update import info and version</span>
+</span><span id="__span-1-33"><a id="__codelineno-1-33" name="__codelineno-1-33" href="#__codelineno-1-33"></a>├──<span class="w"> </span>tests<span class="w">                     </span><span class="c1"># Add other test files for Python code</span>
+</span><span id="__span-1-34"><a id="__codelineno-1-34" name="__codelineno-1-34" href="#__codelineno-1-34"></a>│<span class="w">   </span>└──<span class="w"> </span>test_main.py<span class="w">          </span><span class="c1"># Follow the &#39;test_name&#39; convention</span>
+</span><span id="__span-1-35"><a id="__codelineno-1-35" name="__codelineno-1-35" href="#__codelineno-1-35"></a>├──<span class="w"> </span>visuals<span class="w">                   </span><span class="c1"># All visuals for presentations and writing</span>
+</span><span id="__span-1-36"><a id="__codelineno-1-36" name="__codelineno-1-36" href="#__codelineno-1-36"></a>└──<span class="w"> </span>writing
+</span><span id="__span-1-37"><a id="__codelineno-1-37" name="__codelineno-1-37" href="#__codelineno-1-37"></a><span class="w">    </span>├──<span class="w"> </span>active<span class="w">                </span><span class="c1"># Working draft files should be stored here</span>
+</span><span id="__span-1-38"><a id="__codelineno-1-38" name="__codelineno-1-38" href="#__codelineno-1-38"></a><span class="w">    </span>├──<span class="w"> </span>drafts<span class="w">                </span><span class="c1"># Old drafts</span>
+</span><span id="__span-1-39"><a id="__codelineno-1-39" name="__codelineno-1-39" href="#__codelineno-1-39"></a><span class="w">    </span>├──<span class="w"> </span>published<span class="w">             </span><span class="c1"># Published version</span>
+</span><span id="__span-1-40"><a id="__codelineno-1-40" name="__codelineno-1-40" href="#__codelineno-1-40"></a><span class="w">    </span>└──<span class="w"> </span>submission<span class="w">            </span><span class="c1"># Drafts that were submitted for publication</span>
 </span></code></pre></div>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
 <p>When you publish a new version, you should first manually adjust the version in
